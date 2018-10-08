@@ -1,0 +1,38 @@
+<ActionBar class="action-bar" android:title="Todo Detail">
+    <!--<NavigationButton text="Back" android.systemIcon="ic_menu_back" (tap)="goBack()"></NavigationButton>-->
+    <ActionItem ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()" android.position="right"></ActionItem>
+    <Label class="action-bar-title" text="Todo Detail"></Label>   
+</ActionBar>
+
+
+
+<ScrollView orientation="vertical">
+    <DockLayout stretchLastChild="false" class="page page-content" tkExampleTitle tkToggleNavButton marginTop="30">
+       <RadDataForm #dataform [source]="dataItems" validationMode="Immediate" commitMode="Manual" dock="top">
+            <TKEntityProperty tkDataFormProperty name="id" index="1" [hidden]="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="firstname" index="2">
+                <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextSize="18" labelHidden="false"></TKPropertyEditorStyle>
+                </TKPropertyEditor>                    
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="lastname" index="3">
+                <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextSize="18" labelHidden="false"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="organization" index="4">
+                <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextSize="18" labelHidden="false"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+        </RadDataForm>
+        <Label [text]="text" textWrap="true" margin="12" android:color="#C73339" ios:color="red" horizontalAlignment="center" fontSize="18" dock="top"></Label>
+        <Button text="Save" (tap)="onTap()" margin="12" horizontalAlignment="stretch" class="btn btn-primary btn-active" fontSize="18" dock="top"></Button>
+    
+         <Label (tap)="gotoListPage()" class="labelName" paddingBottom="20" textAlignment="center" dock="bottom">
+            <FormattedString>
+                <Span text="Go to list" fontSize="18"></Span>
+            </FormattedString>
+        </Label>      
+    </DockLayout>
+</ScrollView>
